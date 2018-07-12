@@ -6,4 +6,4 @@ A documentation theme for [Hugo](https://gohugo.io).
 
 Install with `git` inside your project folder:
 
-git clone https://github.com/Inscryb/hugo-crisp-docs.git themes/hugo-material-docs
+git clone https://github.com/Inscryb/hugo-crisp-docs.git themes/hugo-crisp-docs
