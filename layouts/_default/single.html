@@ -1,0 +1,28 @@
+{{ partial "head" . }}
+  
+{{ partial "nav-top" . }}
+
+<div class="container article-page mb-5">
+
+  <div class="clearfix">
+    <article class="main-column">
+      <header class="article-header">
+        <h1>
+          <h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+        </h1>
+        <div class="dateline">Last updated December 14, 2017</div>
+      </header>
+
+      <div class="subtle-wrap">
+        {{ .Content }}
+      </div>
+
+    </article>
+
+    {{ partial "nav-sidebar" . }}
+
+  </div>
+
+</div>
+
+{{ partial "footer" . }}

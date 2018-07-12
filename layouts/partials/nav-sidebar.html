@@ -1,0 +1,21 @@
+<div class="article-sidebar d-none d-sm-block">
+    <ul class="list-unstyled sidebar-nav">
+        {{ range .Site.Menus.docs.ByWeight }} 
+
+            {{ $.Scratch.Set "currentMenuEntry" . }} 
+            {{ partial "nav-sidebar-item" $currentNode}} 
+            
+            {{ if .HasChildren }}
+                <ul>
+                    {{ range .Children }}
+                    <li>
+                        {{ $.Scratch.Set "currentMenuEntry" . }} 
+                        {{ partial "nav-sidebar-item" $currentNode}} 
+                    </li>
+                    {{ end }}
+                </ul>
+            {{ end }} 
+
+        {{ end }}
+    </ul>
+</div>
