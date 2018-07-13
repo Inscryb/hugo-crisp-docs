@@ -12,13 +12,18 @@
         <meta name="author" content="{{ . }}">
     {{ end }}
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}{{ "favicon.ico" | absURL }}{{ end }}">
-    <link rel="icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}{{ "favicon.ico" | absURL }}{{ end }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}">
+    <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}">
 
     <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
 
+    {{ if .Site.Params.cdn }}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="{{ "css/font-awesome.min.css" | absURL }}" rel="stylesheet">
+    {{ else }}
     <link href="{{ "css/bootstrap.css" | absURL }}" rel="stylesheet">
     <link href="{{ "css/font-awesome.min.css" | absURL }}" rel="stylesheet">
+    {{ end }}
     <link href="{{ "css/main.css" | absURL }}" rel="stylesheet">
 
     {{ with .RSSLink }}
