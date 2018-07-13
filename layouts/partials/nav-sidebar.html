@@ -2,15 +2,23 @@
     <ul class="list-unstyled sidebar-nav">
         {{ range .Site.Menus.docs.ByWeight }} 
 
-            {{ $.Scratch.Set "currentMenuEntry" . }} 
-            {{ partial "nav-sidebar-item" $currentNode}} 
+            {{ partial "nav-sidebar-item" .}}
             
             {{ if .HasChildren }}
-                <ul>
+                <ul class="list-unstyled ml-3">
                     {{ range .Children }}
                     <li>
-                        {{ $.Scratch.Set "currentMenuEntry" . }} 
-                        {{ partial "nav-sidebar-item" $currentNode}} 
+                        {{ partial "nav-sidebar-item" .}}
+
+                        {{ if .HasChildren }}
+                            <ul class="list-unstyled ml-3">
+                                {{ range .Children }}
+                                <li>
+                                    {{ partial "nav-sidebar-item" .}} 
+                                </li>
+                                {{ end }}
+                            </ul>
+                        {{ end }} 
                     </li>
                     {{ end }}
                 </ul>

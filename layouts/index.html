@@ -1,11 +1,68 @@
 {{ partial "head" . }}
-  
-{{ partial "nav-top" . }}
 
-<div class="container article-page mb-5">
+<div class="bg-dark text-white">
+  {{ partial "nav-top" . }}
 
-  Index
+  <div class="container" style="display:none;">
+    <form class="p-5">
+      <div class="text-center pb-4">
+        <h1>How can we help?</h1>
+      </div>
 
+      <div class="form-label-group search-box">
+        <div class="input-group">
+          <input id="search" class="form-control form-control-lg border-right-0" placeholder="Search" type="text" autofocus="" required="">
+          <div class="input-group-append">
+            <button class="btn btn-light btn-lg border border-left-0 bg-white" title="Search" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<div class="bg-light text-dark p-5">
+  <div class="container mb-5">
+    <header class="p-4 text-center">
+      <h2>Browse All Topics</h2>
+    </header>
+
+    <div class="row">
+
+      {{ range .Site.Menus.docs.ByWeight }}
+      <div class="col-md-4 topic-box">
+        <div class="card mb-4 p-3 box-shadow" style="height: 300px;">
+          <div class="card-body">
+            <div class="text-truncate topic-header">
+              {{ .Name }}
+            </div>
+
+            <ul class="list-unstyled py-3">
+              {{ range first 5 .Children }}
+                <li class="text-truncate">
+                  <a href="{{ .URL | relURL}}">
+                      {{ .Name }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+
+            <div class="text-center font-weight-bold py-1" style="font-size: .9em;">
+              <a href="{{ .URL | relURL}}">More</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {{ end }}
+
+
+    </div>
+  </div>
 </div>
 
 {{ partial "footer" . }}

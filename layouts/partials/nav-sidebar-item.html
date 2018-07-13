@@ -1,7 +1,5 @@
-{{ $currentMenuEntry := .Scratch.Get "currentMenuEntry" }}
-
-<li>
-    <a class="text-muted" title="{{ $currentMenuEntry.Name }}" href="{{ $currentMenuEntry.URL | relURL}}">
-        {{ $currentMenuEntry.Pre }} {{ $currentMenuEntry.Name }} {{ $currentMenuEntry.Post }}
+<li class="p-1">
+    <a class="text-muted {{ if .HasChildren }}font-weight-bold{{ end }}" title="{{ .Name }}" href="{{ .URL | relURL}}">
+        {{ .Pre }} {{ .Name }} {{ .Post }}
     </a>
 </li>
