@@ -17,9 +17,9 @@
 
     <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
 
-    <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/font-awesome.min.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+    <link href="{{ "css/bootstrap.min.css" | absURL }}" rel="stylesheet">
+    <link href="{{ "css/font-awesome.min.css" | absURL }}" rel="stylesheet">
+    <link href="{{ "css/main.css" | absURL }}" rel="stylesheet">
 
     {{ with .RSSLink }}
         <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
